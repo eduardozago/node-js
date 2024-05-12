@@ -19,4 +19,9 @@ npm run dev
 
 ## Streams
 
+Stream implementation in Node.js in the forms of writing, reading and transformation.
 
+Demonstrative use in streams/fundamentals.js simulating partial reading, transformation and writing using streams, to execute:
+```
+node streams/fundamentals.js
+```
