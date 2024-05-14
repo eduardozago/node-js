@@ -21,7 +21,21 @@ npm run dev
 
 Stream implementation in Node.js in the forms of writing, reading and transformation.
 
-Demonstrative use in streams/fundamentals.js simulating partial reading, transformation and writing using streams, to execute:
+Demonstrative use in "streams/fundamentals.js" simulating partial reading, transformation and writing using streams, to execute:
 ```
 node streams/fundamentals.js
+```
+
+### Streams - Simulation
+
+Simulation of an upload using streams in "streams/fake-upload-to-http-stream.js" to a server in "streams/stream-http-server.js" that transforms the data as it is received.
+
+To run the server:
+```
+streams/stream-http-server.js
+```
+
+To upload:
+```
+streams/fake-upload-to-http-stream.js
 ```
