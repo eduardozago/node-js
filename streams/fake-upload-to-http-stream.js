@@ -7,7 +7,7 @@ class OneToHundreStream extends Readable {
         const i = this.index++
 
         setTimeout( () => {
-            if (i > 100) {
+            if (i > 10) {
                 this.push(null)
             } else {
                 const buffer = Buffer.from(String(i))
@@ -22,4 +22,8 @@ fetch('http://localhost:3334', {
     method: 'POST',
     body: new OneToHundreStream(),
     duplex: 'half'
+}).then(response => {
+    return response.text()
+}).then(data => {
+    console.log(data)
 })

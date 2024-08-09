@@ -32,10 +32,10 @@ Simulation of an upload using streams in "streams/fake-upload-to-http-stream.js"
 
 To run the server:
 ```
-streams/stream-http-server.js
+node streams/stream-http-server.js
 ```
 
 To upload:
 ```
-streams/fake-upload-to-http-stream.js
+node streams/fake-upload-to-http-stream.js
 ```
