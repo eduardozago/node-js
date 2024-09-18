@@ -7,12 +7,13 @@ This section aims to provide a hands-on understanding of key Node.js concepts, i
     - [Endpoints](#endpoints)
 - [Streams](#streams)
 - [Streams simulation](#streams-simulation)
+- [Buffer](#buffer)
 
 ## Server
 
 The purpose of the server was to investigate HTTP requests and their routes using various methods, including GET and POST, as well as the use of headers and status codes for different results of each request.
 
-In this example, user information is set using POST and obtained via GET.
+In this example, user information is set using POST and obtained via GET with JSON content type.
 
 ### Endpoints
 
@@ -50,3 +51,18 @@ Run upload:
 ```
 node streams/fake-upload-to-http-stream.js
 ```
+
+## Buffer
+
+A low-level format buffer is an effective way to read and write data to and from memory.
+
+"streams/buffer.js" contains one example of a buffer. 
+
+Run example:
+```
+node streams/buffer.js
+```
+
+## Middleware
+
+Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in "src/middlewares/json.js".
