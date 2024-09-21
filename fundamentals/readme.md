@@ -9,6 +9,8 @@ This section aims to provide a hands-on understanding of key Node.js concepts, i
 - [Streams simulation](#streams-simulation)
 - [Buffer](#buffer)
 - [Middleware](#middleware)
+- [Database](#database)
+- [Routes](#routes)
 
 ## Server
 
@@ -30,7 +32,7 @@ npm run dev
 
 Node.js stream implementation for writing, reading, and manipulation.
 
-Use of streams to simulate partial reading, transformation, and writing is demonstrated in "streams/fundamentals.js". 
+Use of streams to simulate partial reading, transformation, and writing is demonstrated in [fundamentals.js](streams/fundamentals.js). 
 
 In this example, a readable stream reads one integer from 1 to 100 times per second. Next, use the transform stream to multiply by -1 and the writable stream to multiply by 10.
 
@@ -41,7 +43,7 @@ node streams/fundamentals.js
 
 ## Streams simulation
 
-Here, "streams/fake-upload-to-http-stream.js" uses streams to simulate an upload to a server "streams/stream-http-server.js" that alters the data it receives.
+Here, [fake-upload-to-http-stream.js](streams/fake-upload-to-http-stream.js) uses streams to simulate an upload to a server [stream-http-server.js](streams/stream-http-server.js) that alters the data it receives.
 
 Run server:
 ```
@@ -57,7 +59,7 @@ node streams/fake-upload-to-http-stream.js
 
 A low-level format buffer is an effective way to read and write data to and from memory.
 
-"streams/buffer.js" contains one example of a buffer. 
+[buffer.js](streams/buffer.js) contains one example of a buffer. 
 
 Run example:
 ```
@@ -66,8 +68,18 @@ node streams/buffer.js
 
 ## Middleware
 
-Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in "src/middlewares/json.js".
+Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in [json.js](src/middlewares/json.js).
 
 ## Database
 
-To store data in a persistent format, a local database is created. A JSON file called "src/db.json" contains data that simulates a database. "src/database.js" contains a class for database operations such as insert and select. "src/server.js" calls database operations using the database class. 
+To store data in a persistent format, a local database is created. A JSON file called [db.json](src/db.json) contains data that simulates a database. [database.js](src/middlewares/database.js) contains a class for database operations such as insert and select. "src/server.js" calls database operations using the database class. 
+
+## Routes
+
+In order to manage routes more effectively, a file named [routes.js](src/routes.js) was made. It uses an array of routes, with each item being an object that has route parameters:
+
+- Method: request method
+- Path: endpoint
+- Handler: route function
+
+Now, if a route exists in [Routes](src/routes.js), the [Server](src/server.js) will call it.
