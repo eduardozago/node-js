@@ -8,6 +8,7 @@ This section aims to provide a hands-on understanding of key Node.js concepts, i
 - [Streams](#streams)
 - [Streams simulation](#streams-simulation)
 - [Buffer](#buffer)
+- [Middleware](#middleware)
 
 ## Server
 
@@ -17,8 +18,8 @@ In this example, user information is set using POST and obtained via GET with JS
 
 ### Endpoints
 
-- /users (POST): Set user data
-- /users (GET): Get user data
+- /users (POST): Create new user
+- /users (GET): Get all users
 
 To run server:
 ```
@@ -66,3 +67,7 @@ node streams/buffer.js
 ## Middleware
 
 Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in "src/middlewares/json.js".
+
+## Database
+
+To store data in a persistent format, a local database is created. A JSON file called "src/db.json" contains data that simulates a database. "src/database.js" contains a class for database operations such as insert and select. "src/server.js" calls database operations using the database class. 
