@@ -25,6 +25,7 @@ In this example, user information is set using POST and obtained via GET with JS
 -  /users (POST) : **Create** a new user and send data in the JSON format in the request body.
     - Example: `{"name": "John Doe", "email": "johndoe@email.com"}`
 - /users (GET): **Get all** users in database into an array.
+- /users?search=name (GET): **Search** in database by name or e-mail.
 - /users/:id (PUT): **Update** user by `id`
 - /users/:id (DELETE): **Delete** user by `id`
 
