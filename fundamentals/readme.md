@@ -11,7 +11,8 @@ This section aims to provide a hands-on understanding of key Node.js concepts, i
 - [Middleware](#middleware)
 - [Database](#database)
 - [Routes](#routes)
-    - [Routes parameters](#routes-parameters)
+    - [Route parameters](#route-parameters)
+    - [Query parameters](#query-parameters)
 
 ## Server
 
@@ -21,8 +22,11 @@ In this example, user information is set using POST and obtained via GET with JS
 
 ### Endpoints
 
-- /users (POST): Create new user
-- /users (GET): Get all users
+-  /users (POST) : **Create** a new user and send data in the JSON format in the request body.
+    - Example: `{"name": "John Doe", "email": "johndoe@email.com"}`
+- /users (GET): **Get all** users in database into an array.
+- /users/:id (PUT): **Update** user by `id`
+- /users/:id (DELETE): **Delete** user by `id`
 
 To run server:
 ```
@@ -69,11 +73,13 @@ node streams/buffer.js
 
 ## Middleware
 
-Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in [json.js](src/middlewares/json.js).
+Request and response interceptor. An example of how middleware transforms input and output into JSON content type may be found in [src/middlewares/json.js](src/middlewares/json.js).
 
 ## Database
 
 To store data in a persistent format, a local database is created. A JSON file called [db.json](src/db.json) contains data that simulates a database. [database.js](src/middlewares/database.js) contains a class for database operations such as insert and select. "src/server.js" calls database operations using the database class. 
+
+In this example, class Database is responsable to 
 
 ## Routes
 
@@ -85,6 +91,14 @@ In order to manage routes more effectively, a file named [routes.js](src/routes.
 
 Now, if a route exists in [Routes](src/routes.js), the [Server](src/server.js) will call it.
 
-### Routes parameters
+### Route parameters
 
-[Build Route Path](src/utils/build-route-path.js) using Regex is used to locate and check dynamic parameters in order to identify them. Inserted into the request parameters for use in the route function, if it a valid parameter. 
+The data supplied in url on `/users/:id` format, with `id` being a dynamic parameter that will be sent on url, is known as a route parameter. 
+
+Dynamic parameters are located and checked using Regex in [BuildRoutePath](src/utils/build-route-path.js) to identify them. Inserted into the request parameters for use in the route function, if it a valid parameter. 
+
+### Query parameters
+
+To send optional data in a URL like `/users?search=John`, query parameters are utilized. 
+
+As in [Route Parameters](#route-parameters), Regex is utilized to identify and verify these inputs. [BuildRoutePath](src/utils/build-route-path.js) is where it is implemented.
