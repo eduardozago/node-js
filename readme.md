@@ -10,4 +10,3 @@ In this repository, you will find a comprehensive and practical introduction to 
 
 The following resources (necessary for execution) were used for this project:
  - [nvm](https://github.com/nvm-sh/nvm)
- - [httpie](https://httpie.io/)

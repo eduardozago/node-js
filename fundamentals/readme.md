@@ -11,6 +11,7 @@ This section aims to provide a hands-on understanding of key Node.js concepts, i
 - [Middleware](#middleware)
 - [Database](#database)
 - [Routes](#routes)
+    - [Routes parameters](#routes-parameters)
 
 ## Server
 
@@ -83,3 +84,7 @@ In order to manage routes more effectively, a file named [routes.js](src/routes.
 - Handler: route function
 
 Now, if a route exists in [Routes](src/routes.js), the [Server](src/server.js) will call it.
+
+### Routes parameters
+
+[Build Route Path](src/utils/build-route-path.js) using Regex is used to locate and check dynamic parameters in order to identify them. Inserted into the request parameters for use in the route function, if it a valid parameter. 
